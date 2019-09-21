@@ -1,0 +1,33 @@
+{
+  "name": "@exifers/fetch-utils",
+  "version": "1.0.1",
+  "description": "A collection of functions to make API calls very simple",
+  "repository": {
+    "type": "git",
+    "url": ""
+  },
+  "main": "dist/main.js",
+  "scripts": {
+    "build": "webpack --mode production",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "@babel/core": "^7.6.0",
+    "@babel/preset-env": "^7.6.0",
+    "babel-loader": "^8.0.6",
+    "webpack": "^4.40.2",
+    "webpack-cli": "^3.3.9"
+  },
+  "files": [
+    "dist/main.js"
+  ],
+  "keywords": [
+    "javascript",
+    "fetch",
+    "api",
+    "HTTP",
+    "AJAX"
+  ]
+}
