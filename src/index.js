@@ -2,25 +2,18 @@ import { getCookie } from './cookie'
 
 export const handleErrors = response => {
   if (!response.ok) {
-    return response.json().then(json => { throw json })
+    return response.json().then(json => {
+      throw json
+    })
   }
   return response
 }
-
-const delay = (ms) => promise => {
-  return new Promise(resolve => (
-    setTimeout(() => resolve(promise), ms)
-  ))
-}
-
-const handleDelay = delay(0)
 
 export const fetchBase = (url, context) => {
   context.headers = context.headers || {}
   context.headers['Content-Type'] = 'application/json'
   context.headers['X-CSRFToken'] = getCookie('csrftoken')
   return fetch(url, context)
-    .then(handleDelay)
     .then(handleErrors)
     .then(response => response.json())
 }
@@ -81,7 +74,7 @@ export default {
   post,
   put,
   patch,
-  'delete':delete_,
+  'delete': delete_,
   options,
   head,
   trace
