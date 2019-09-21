@@ -4,7 +4,7 @@
   "description": "A collection of functions to make API calls very simple",
   "repository": {
     "type": "git",
-    "url": ""
+    "url": "https://github.com/Exifers/fetch-utils.git"
   },
   "main": "dist/main.js",
   "scripts": {
