@@ -1,18 +1,4 @@
-export function getCookie (cname) {
-  let name = cname + '='
-  let decodedCookie = decodeURIComponent(document.cookie)
-  let ca = decodedCookie.split(';')
-  for (let i = 0; i < ca.length; i++) {
-    let c = ca[i]
-    while (c.charAt(0) === ' ') {
-      c = c.substring(1)
-    }
-    if (c.indexOf(name) === 0) {
-      return c.substring(name.length, c.length)
-    }
-  }
-  return ''
-}
+import { getCookie } from './cookie'
 
 export const handleErrors = response => {
   if (!response.ok) {
@@ -39,15 +25,64 @@ export const fetchBase = (url, context) => {
     .then(response => response.json())
 }
 
-export const post = (url, body) => (
-  fetchBase(url, {
-    method: 'POST',
-    body: body
-  })
-)
-
 export const get = (url) => (
   fetchBase(url, {
     method: 'GET'
   })
 )
+
+export const post = (url, body) => (
+  fetchBase(url, {
+    method: 'POST',
+    body: JSON.stringify(body)
+  })
+)
+
+export const put = (url, body) => (
+  fetchBase(url, {
+    method: 'PUT',
+    body: JSON.stringify(body)
+  })
+)
+
+export const patch = (url, body) => (
+  fetchBase(url, {
+    method: 'PATCH',
+    body: JSON.stringify(body)
+  })
+)
+
+export const delete_ = (url) => (
+  fetchBase(url, {
+    method: 'DELETE',
+  })
+)
+
+export const options = (url) => (
+  fetchBase(url, {
+    method: 'OPTIONS',
+  })
+)
+
+export const head = (url) => (
+  fetchBase(url, {
+    method: 'HEAD',
+  })
+)
+
+export const trace = (url) => (
+  fetchBase(url, {
+    method: 'TRACE',
+  })
+)
+
+export default {
+  get,
+  post,
+  put,
+  patch,
+  'delete':delete_,
+  options,
+  head,
+  trace
+}
