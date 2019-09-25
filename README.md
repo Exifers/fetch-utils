@@ -94,7 +94,7 @@ delete_('/api/todos/1')
 ```
 Note that ```delete``` is a reserved keyword in javascript so we named it ```delete_```. You can also use the default import to avoid that collision:
 ```javascript
-import request from '@ecifers/fetch-utils'
+import request from '@exifers/fetch-utils'
 
 request.delete('/api/todos/1')
     .then(json => (
