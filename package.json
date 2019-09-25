@@ -1,6 +1,6 @@
 {
   "name": "@exifers/fetch-utils",
-  "version": "1.0.5",
+  "version": "1.0.6",
   "description": "A collection of functions to make API calls very simple",
   "repository": {
     "type": "git",
@@ -9,13 +9,15 @@
   "main": "dist/main.js",
   "scripts": {
     "build": "webpack --mode production",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "jest",
+    "test:watch": "jest --watch"
   },
   "author": "",
   "license": "ISC",
   "devDependencies": {
     "@babel/core": "^7.6.0",
     "@babel/preset-env": "^7.6.0",
+    "babel-jest": "^24.9.0",
     "babel-loader": "^8.0.6",
     "eslint": "^6.4.0",
     "eslint-config-standard": "^14.1.0",
@@ -23,6 +25,8 @@
     "eslint-plugin-node": "^10.0.0",
     "eslint-plugin-promise": "^4.2.1",
     "eslint-plugin-standard": "^4.0.1",
+    "jest": "^24.9.0",
+    "jest-fetch-mock": "^2.1.2",
     "webpack": "^4.40.2",
     "webpack-cli": "^3.3.9"
   },
@@ -34,6 +38,14 @@
     "fetch",
     "api",
     "HTTP",
-    "AJAX"
-  ]
+    "AJAX",
+    "utils",
+    "request"
+  ],
+  "jest": {
+    "automock": false,
+    "setupFiles": [
+      "./setupJest.js"
+    ]
+  }
 }

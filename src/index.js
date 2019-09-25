@@ -1,73 +1,101 @@
-import { getCookie } from './cookie'
+import { fetchBase } from './base'
 
-export const handleErrors = response => {
-  if (!response.ok) {
-    return response.json().then(json => {
-      throw json
-    })
-  }
-  return response
-}
-
-export const fetchBase = (url, context) => {
-  context.headers = context.headers || {}
-  context.headers['Content-Type'] = 'application/json'
-  context.headers['X-CSRFToken'] = getCookie('csrftoken')
-  return fetch(url, context)
-    .then(handleErrors)
-    .then(response => response.json())
-}
-
-export const get = (url) => (
-  fetchBase(url, {
-    method: 'GET'
-  })
+const _get = (url, config) => (
+  fetchBase(url,
+    {
+      method: 'GET'
+    },
+    config)
 )
 
-export const post = (url, body) => (
-  fetchBase(url, {
-    method: 'POST',
-    body: JSON.stringify(body)
-  })
+const _post = (url, body, config) => (
+  fetchBase(url,
+    {
+      method: 'POST',
+      body: JSON.stringify(body)
+    },
+    config
+  )
 )
 
-export const put = (url, body) => (
-  fetchBase(url, {
-    method: 'PUT',
-    body: JSON.stringify(body)
-  })
+const _put = (url, body, config) => (
+  fetchBase(url,
+    {
+      method: 'PUT',
+      body: JSON.stringify(body)
+    },
+    config
+  )
 )
 
-export const patch = (url, body) => (
-  fetchBase(url, {
-    method: 'PATCH',
-    body: JSON.stringify(body)
-  })
+const _patch = (url, body, config) => (
+  fetchBase(url,
+    {
+      method: 'PATCH',
+      body: JSON.stringify(body)
+    },
+    config
+  )
 )
 
-export const delete_ = (url) => (
-  fetchBase(url, {
-    method: 'DELETE',
-  })
+const _delete_ = (url, config) => (
+  fetchBase(url,
+    {
+      method: 'DELETE',
+    },
+    config
+  )
 )
 
-export const options = (url) => (
-  fetchBase(url, {
-    method: 'OPTIONS',
-  })
+const _options = (url, config) => (
+  fetchBase(
+    url,
+    {
+      method: 'OPTIONS',
+    },
+    config
+  )
 )
 
-export const head = (url) => (
-  fetchBase(url, {
-    method: 'HEAD',
-  })
+const _head = (url, config) => (
+  fetchBase(url,
+    {
+      method: 'HEAD',
+    },
+    config
+  )
 )
 
-export const trace = (url) => (
-  fetchBase(url, {
-    method: 'TRACE',
-  })
+const _trace = (url, config) => (
+  fetchBase(url,
+    {
+      method: 'TRACE',
+    },
+    config
+  )
 )
+
+/* Ensure exported methods don't take any additional parameters */
+export const get = (url) => _get(url)
+export const post = (url, body) => _post(url, body)
+export const put = (url, body) => _put(url, body)
+export const patch = (url, body) => _patch(url, body)
+export const delete_ = (url) => _delete_(url)
+export const options = (url) => _options(url)
+export const head = (url) => _head(url)
+export const trace = (url) => _trace(url)
+
+export const configure = (config) => ({
+  /* Inject config */
+  get: (url) => _get(url, config),
+  post: (url, body) => _post(url, body, config),
+  put: (url, body) => _put(url, body, config),
+  patch: (url, body) => _patch(url, body, config),
+  delete: (url) => _delete_(url, config),
+  options: (url) => _options(url, config),
+  head: (url) => _head(url, config),
+  trace: (url) => _trace(url, config)
+})
 
 export default {
   get,
@@ -77,5 +105,7 @@ export default {
   'delete': delete_,
   options,
   head,
-  trace
+  trace,
+
+  configure
 }
