@@ -1,15 +1,29 @@
 # @exifers/fetch-utils
-A set of handy functions to perform requests on an API very easily.
+A set of handy functions to perform requests on an API very easily.  
+
+This module is designed to be easy-to-use and very lightweight. If you need a more advanced tool with response/request transformation for example you may want something like [axios](https://www.npmjs.com/package/axios).
+
+## Install
+```bash
+// npm
+npm install --save @exifers/fetch-utils
+
+// yarn
+yarn add @exifers/fetch-utils
+```
 
 ## Usage
 ### Import
 - ES6 modules
 ```javascript
-import { get, post } from '@exifers/fetch-utils'
+// using named imports
+import { get, post, delete_ } from '@exifers/fetch-utils'
 
+// using default import
 import request from '@exifers/fetch-utils'
 request.get(/* arguments */)
 request.post(/* arguments */)
+request.delete(/* arguments */)
 ```
 - CommonJS modules
 ```javascript
@@ -20,6 +34,8 @@ request.post(/* arguments */);
 
 ### get(<sub><sup>url</sup></sub>).then(<sub><sup>handle response</sup></sub>).catch(<sub><sup>handle error</sup></sub>)
 ```javascript
+import { get } from '@exifers/fetch-utils'
+
 get('/api/todos/')
     .then(json => (
         console.log('Todos: ' + JSON.stringify(json))
@@ -30,6 +46,8 @@ get('/api/todos/')
 ```
 ### post(<sub><sup>url</sup></sub>, <sub><sup>body</sup></sub>).then(<sub><sup>handle response</sup></sub>).catch(<sub><sup>handle error</sup></sub>)
 ```javascript
+import { post } from '@exifers/fetch-utils'
+
 post('/api/todos/', {text:'Clean my room',done:false})
     .then(json => (
         console.log('Todo added')
@@ -40,6 +58,8 @@ post('/api/todos/', {text:'Clean my room',done:false})
 ```
 ### put(<sub><sup>url</sup></sub>, <sub><sup>body</sup></sub>).then(<sub><sup>handle response</sup></sub>).catch(<sub><sup>handle error</sup></sub>)
 ```javascript
+import { put } from '@exifers/fetch-utils'
+
 put('/api/todos/1', {text:'Clean my room',done:false})
     .then(json => (
         console.log('Todo updated')
@@ -50,6 +70,8 @@ put('/api/todos/1', {text:'Clean my room',done:false})
 ```
 ### patch(<sub><sup>url</sup></sub>, <sub><sup>body</sup></sub>).then(<sub><sup>handle response</sup></sub>).catch(<sub><sup>handle error</sup></sub>)
 ```javascript
+import { patch } from '@exifers/fetch-utils'
+
 patch('/api/todos/1', {done:true})
     .then(json => (
         console.log('Todo updated')
@@ -58,9 +80,11 @@ patch('/api/todos/1', {done:true})
         console.warn('An error happened: ' + error)
     ))
 ```
-### delete(<sub><sup>url</sup></sub>).then(<sub><sup>handle response</sup></sub>).catch(<sub><sup>handle error</sup></sub>)
+### delete_(<sub><sup>url</sup></sub>).then(<sub><sup>handle response</sup></sub>).catch(<sub><sup>handle error</sup></sub>)
 ```javascript
-delete('/api/todos/1')
+import { delete_ } from '@exifers/fetch-utils'
+
+delete_('/api/todos/1')
     .then(json => (
         console.log('Todo deleted')
     ))
@@ -68,8 +92,23 @@ delete('/api/todos/1')
         console.warn('An error happened: ' + error)
     ))
 ```
+Note that ```delete``` is a reserved keyword in javascript so we named it ```delete_```. You can also use the default import to avoid that collision:
+```javascript
+import request from '@ecifers/fetch-utils'
+
+request.delete('/api/todos/1')
+    .then(json => (
+        console.log('Todo deleted')
+    ))
+    .catch(error => (
+        console.warn('An error happened: ' + error)
+    ))
+```
+
 ### options(<sub><sup>url</sup></sub>).then(<sub><sup>handle response</sup></sub>).catch(<sub><sup>handle error</sup></sub>)
 ```javascript
+import { options } from '@exifers/fetch-utils'
+
 options('/api/todos/1')
     .then(json => (
         console.log('Todo options:')
@@ -81,6 +120,8 @@ options('/api/todos/1')
 ```
 ### head(<sub><sup>url</sup></sub>).then(<sub><sup>handle response</sup></sub>).catch(<sub><sup>handle error</sup></sub>)
 ```javascript
+import { head } from '@exifers/fetch-utils'
+
 head('/api/todos/1')
     .then(json => (
         console.log('Todo head:')
@@ -92,6 +133,8 @@ head('/api/todos/1')
 ```
 ### trace(<sub><sup>url</sup></sub>).then(<sub><sup>handle response</sup></sub>).catch(<sub><sup>handle error</sup></sub>)
 ```javascript
+import { trace } from '@exifers/fetch-utils'
+
 trace('/api/todos/1')
     .then(json => (
         console.log('Todo trace:')
@@ -102,7 +145,7 @@ trace('/api/todos/1')
     ))
 ```
 ## CSRF Token
-By default, ```post``` adds the ```XCSRF-Token``` header with the ```csrftoken``` cookie as value. This makes it working nicely with a [Django](https://www.djangoproject.com) backend.
+By default, all requests are performed with the ```XCSRF-Token``` header with ```csrftoken``` cookie as value. This makes it working nicely with a [Django](https://www.djangoproject.com) backend.
 
 ## Licence
 [MIT](https://couto.mit-license.org/)
