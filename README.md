@@ -1,4 +1,9 @@
 # @exifers/fetch-utils
+[![npm version](https://img.shields.io/npm/v/@exifers/fetch-utils.svg?style=flat-square)](https://www.npmjs.com/package/@exifers/fetch-utils)
+[![install size](https://badgen.net/packagephobia/install/@exifers/fetch-utils)](https://packagephobia.now.sh/result?p=@exifers/fetch-utils)
+[![downloads](https://img.shields.io/npm/dm/@exifers/fetch-utils.svg?style=flat-square)](https://npm-stat.com/charts.html?package=@exifers/fetch-utils)
+
+
 A set of handy functions to perform requests on an API very easily.  
 
 This module is designed to be easy-to-use and lightweight. If you need a more advanced tool with response/request transformation for example you may want something like [axios](https://www.npmjs.com/package/axios).
@@ -60,12 +65,13 @@ request_name(url, [body])
 - the error thrown by the fetch API
 - the body of the response if it has an error HTTP status code
 
+Here are some examples below :
 #### GET
 ```javascript
 import { get } from '@exifers/fetch-utils'
 
 get('/api/todos/')
-    .then(json => console.log(json))
+    .then(todos => console.log(todos))
     .catch(error => console.log(error))
 ```
 #### POST
