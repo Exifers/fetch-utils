@@ -8,19 +8,20 @@ A set of handy functions to perform requests on an API very easily.
 
 This module is designed to be easy-to-use and lightweight. If you need a more advanced tool with response/request transformation for example you may want something like [axios](https://www.npmjs.com/package/axios).
 
-1. [Install](#install)
-2. [Import](#import)
-3. [Usage](#usage)
-    1. [Requests](#requests)
-        1. [GET](#get)
-        2. [POST](#post)
-        3. [PUT](#put)
-        4. [PATCH](#patch)
-        5. [DELETE](#delete)
-        6. [OPTIONS](#options)
-        7. [HEAD](#head)
-        8. [TRACE](#trace)
-    2. [Configuring CSRF Token](#configuring-csrf-token)
+## Table of Contents
+- [Install](#install)
+- [Import](#import)
+- [Usage](#usage)
+    - [Requests](#requests)
+        - [GET](#get)
+        - [POST](#post)
+        - [PUT](#put)
+        - [PATCH](#patch)
+        - [DELETE](#delete)
+        - [OPTIONS](#options)
+        - [HEAD](#head)
+        - [TRACE](#trace)
+    - [Configuring CSRF Token](#configuring-csrf-token)
 
 
 ## Install
@@ -170,7 +171,7 @@ const request = configure({
 ## Missing something ?
 You'd want to add a feature ? Feel free to post an issue on Github.
 
-## Licence
+## License
 [MIT](https://couto.mit-license.org/)
 
 ## Authors
