@@ -1,6 +1,6 @@
 {
   "name": "@exifers/fetch-utils",
-  "version": "1.0.7",
+  "version": "1.0.8",
   "description": "A collection of functions to make API calls very simple",
   "repository": {
     "type": "git",

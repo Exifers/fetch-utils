@@ -2,20 +2,20 @@
 A set of handy functions to perform requests on an API very easily.  
 
 This module is designed to be easy-to-use and lightweight. If you need a more advanced tool with response/request transformation for example you may want something like [axios](https://www.npmjs.com/package/axios).
-## Summary
-1. [Install](#Install)
-2. [Import](#Import)
-3. [Usage](#Usage)
-    1. [Requests](#Requests)
-        1. [GET](#GET)
-        2. [POST](#POST)
-        3. [PUT](#PUT)
-        4. [PATCH](#PATCH)
-        5. [DELETE](#DELETE)
-        6. [OPTIONS](#OPTIONS)
-        7. [HEAD](#HEAD)
-        8. [TRACE](#TRACE)
-    2. [Configuring CSRF Token](#Configuring CSRF Token)
+
+1. [Install](#install)
+2. [Import](#import)
+3. [Usage](#usage)
+    1. [Requests](#requests)
+        1. [GET](#get)
+        2. [POST](#post)
+        3. [PUT](#put)
+        4. [PATCH](#patch)
+        5. [DELETE](#delete)
+        6. [OPTIONS](#options)
+        7. [HEAD](#head)
+        8. [TRACE](#trace)
+    2. [Configuring CSRF Token](#configuring-csrf-token)
 
 
 ## Install
@@ -48,7 +48,7 @@ request.delete(/* url */);
 
 ## Usage
 ### Requests
-Making requests follows always the same pattern :
+Making requests always follows the same pattern :
 ```
 request_name(url, [body])
     .then(json => /* ... */)
