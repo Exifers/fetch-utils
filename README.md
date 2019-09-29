@@ -1,5 +1,6 @@
 # @exifers/fetch-utils
 [![npm version](https://img.shields.io/npm/v/@exifers/fetch-utils.svg?style=flat-square)](https://www.npmjs.com/package/@exifers/fetch-utils)
+[![build status](https://img.shields.io/circleci/build/github/Exifers/fetch-utils)](https://circleci.com/gh/Exifers/fetch-utils)
 [![install size](https://badgen.net/packagephobia/install/@exifers/fetch-utils)](https://packagephobia.now.sh/result?p=@exifers/fetch-utils)
 [![downloads](https://img.shields.io/npm/dm/@exifers/fetch-utils.svg?style=flat-square)](https://npm-stat.com/charts.html?package=@exifers/fetch-utils)
 
