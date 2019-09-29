@@ -1,0 +1,9 @@
+version: 1
+jobs:
+  test:
+    docker:
+      - image: node
+    steps:
+      - checkout
+      - npm install
+      - npm run test
