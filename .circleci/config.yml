@@ -1,5 +1,12 @@
 version: 2
 jobs:
+  build:
+    docker:
+      - image: circleci/node:latest
+    steps:
+      - checkout
+      - run: npm install
+      - run: npm run build
   test:
     docker:
       - image: circleci/node:latest
@@ -12,4 +19,5 @@ workflows:
   version: 2
   basic:
     jobs:
+      - build
       - test
