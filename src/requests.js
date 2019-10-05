@@ -1,37 +1,54 @@
-import { fetchBase } from './base'
+import { fetchBase, fetchBaseBody } from './base'
 
 export const _get = (url, config) => (
-  fetchBase(url,
+  fetchBase(
+    url,
     {
       method: 'GET'
     },
-    config)
+    config
+  )
 )
 export const _post = (url, body, config) => (
-  fetchBase(url,
+  fetchBaseBody(
+    url,
+    body,
     {
-      method: 'POST',
-      body: JSON.stringify(body)
+      method: 'POST'
     },
-    config
+    {
+      ...config,
+      insertCsrfToken: true,
+      insertContentType: true
+    }
   )
 )
 export const _put = (url, body, config) => (
-  fetchBase(url,
+  fetchBaseBody(
+    url,
+    body,
     {
-      method: 'PUT',
-      body: JSON.stringify(body)
+      method: 'PUT'
     },
-    config
+    {
+      ...config,
+      insertCsrfToken: true,
+      insertContentType: true
+    }
   )
 )
 export const _patch = (url, body, config) => (
-  fetchBase(url,
+  fetchBaseBody(
+    url,
+    body,
     {
-      method: 'PATCH',
-      body: JSON.stringify(body)
+      method: 'PATCH'
     },
-    config
+    {
+      ...config,
+      insertCsrfToken: true,
+      insertContentType: true
+    }
   )
 )
 export const _delete_ = (url, config) => (
@@ -39,7 +56,10 @@ export const _delete_ = (url, config) => (
     {
       method: 'DELETE',
     },
-    config
+    {
+      ...config,
+      insertCsrfToken: true
+    }
   )
 )
 export const _options = (url, config) => (

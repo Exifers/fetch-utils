@@ -9,7 +9,7 @@ test('configure csrfHeaderName', (done) => {
   })
 
   const csrfHeaderName = 'some header name'
-  const verbs = ['get', 'post', 'put', 'patch', 'delete', 'options', 'head', 'trace']
+  const verbs = ['post', 'put', 'patch', 'delete']
 
   // testing for each verb is the csrf header name is set in the customFetch
   Promise.all(verbs.map(verb => (
@@ -34,7 +34,7 @@ test('configure csrfHeaderValue', (done) => {
   })
 
   const csrfHeaderValue = 'some header value'
-  const verbs = ['get', 'post', 'put', 'patch', 'delete', 'options', 'head', 'trace']
+  const verbs = ['post', 'put', 'patch', 'delete']
 
   // testing for each verb is the csrf header value is set in the customFetch
   Promise.all(verbs.map(verb => (
@@ -59,7 +59,7 @@ test('configure csrfHeaderValue as a function', (done) => {
   })
 
   const csrfHeaderValue = () => 'some header value'
-  const verbs = ['get', 'post', 'put', 'patch', 'delete', 'options', 'head', 'trace']
+  const verbs = ['post', 'put', 'patch', 'delete']
 
   // testing for each verb is the csrf header value is set in the customFetch
   Promise.all(verbs.map(verb => (
