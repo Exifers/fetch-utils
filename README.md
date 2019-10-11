@@ -7,8 +7,6 @@
 
 A set of handy functions to perform requests on an API very easily.  
 
-This module is designed to be easy-to-use and lightweight. If you need a more advanced tool with response/request transformation for example you may want something like [axios](https://www.npmjs.com/package/axios).
-
 ## Table of Contents
 - [Install](#install)
 - [Import](#import)
